@@ -2,8 +2,11 @@ defmodule HoopsProfile.Accounts.User do
   @moduledoc false
   use HoopsProfile.Schema
   alias __MODULE__
+  @type t() :: %__MODULE__{}
 
   schema "users" do
+    field :first_name, :string
+    field :last_name, :string
     field :email, :string
     field :password, :string, virtual: true, redact: true
     field :hashed_password, :string, redact: true

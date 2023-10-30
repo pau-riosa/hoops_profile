@@ -6,6 +6,8 @@ defmodule HoopsProfile.Repo.Migrations.CreateUsersAuthTables do
 
     create table(:users, primary_key: false) do
       add :id, :uuid, primary_key: true
+      add :first_name, :string
+      add :last_name, :string
       add :email, :citext, null: false
       add :hashed_password, :string, null: false
       add :confirmed_at, :naive_datetime
