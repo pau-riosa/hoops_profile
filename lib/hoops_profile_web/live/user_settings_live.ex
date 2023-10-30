@@ -5,13 +5,23 @@ defmodule HoopsProfileWeb.UserSettingsLive do
 
   def render(assigns) do
     ~H"""
-    <.header class="text-center">
+    <.header>
       Account Settings
       <:subtitle>Manage your account email address and password settings</:subtitle>
     </.header>
 
-    <div class="space-y-12 divide-y">
-      <div>
+    <div class="space-y-12 sm:px-10 divide-y">
+      <div class="w-full grid grid-cols-1 md:grid-cols-3">
+        <header class="w-full flex items-center justify-start gap-6">
+          <div>
+            <h3 class="text-lg font-bold leading-7 text-gray-900 sm:text-xl sm:tracking-tight">
+              Change email address
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-zinc-600">
+              We will send you an email to verify the change.
+            </p>
+          </div>
+        </header>
         <.simple_form
           for={@email_form}
           id="email_form"
@@ -33,7 +43,17 @@ defmodule HoopsProfileWeb.UserSettingsLive do
           </:actions>
         </.simple_form>
       </div>
-      <div>
+      <div class="w-full grid grid-cols-1 md:grid-cols-3">
+        <header class="w-full flex items-center justify-start gap-6">
+          <div>
+            <h3 class="text-lg font-bold leading-7 text-gray-900 sm:text-xl sm:tracking-tight">
+              Change password
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-zinc-600">
+              Update the password associated with your account.
+            </p>
+          </div>
+        </header>
         <.simple_form
           for={@password_form}
           id="password_form"
@@ -69,6 +89,7 @@ defmodule HoopsProfileWeb.UserSettingsLive do
           </:actions>
         </.simple_form>
       </div>
+      <!-- Delete account -->
     </div>
     """
   end

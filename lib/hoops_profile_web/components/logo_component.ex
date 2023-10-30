@@ -9,9 +9,6 @@ defmodule HoopsProfileWeb.Components.Logo do
       <a href="/">
         <img src={~p"/images/logo.svg"} width="250" />
       </a>
-      <p class="bg-brand/5 text-brand rounded-full px-2 font-medium leading-6">
-        v<%= Application.spec(:hoops_profile, :vsn) %>
-      </p>
     </div>
     """
   end

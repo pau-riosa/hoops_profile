@@ -3,3 +3,7 @@
 @import "tailwindcss/utilities";
 
 /* This file is for your main application CSS */
+
+html {
+  font-family: Inter, ui-sans-serif, system-ui;
+}
