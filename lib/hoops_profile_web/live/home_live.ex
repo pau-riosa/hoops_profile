@@ -43,8 +43,6 @@ defmodule HoopsProfileWeb.HomeLive do
         />
       </div>
     </div>
-    <!-- footer -->
-    <.footer />
     """
   end
 
