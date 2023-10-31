@@ -21,6 +21,9 @@ defmodule HoopsProfileWeb.CoreComponents do
   alias Phoenix.HTML.Form
   alias Phoenix.LiveView.JS
 
+  # footer
+  defdelegate footer(assigns), to: Components.Footer
+
   # avatar
   defdelegate avatar(assigns), to: Components.Avatar
 

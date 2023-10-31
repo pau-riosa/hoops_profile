@@ -1,4 +1,5 @@
 defmodule HoopsProfileWeb.HomeLive do
+  @moduledoc false
   use HoopsProfileWeb, :live_view
 
   @impl Phoenix.LiveView
@@ -42,6 +43,8 @@ defmodule HoopsProfileWeb.HomeLive do
         />
       </div>
     </div>
+    <!-- footer -->
+    <.footer />
     """
   end
 
