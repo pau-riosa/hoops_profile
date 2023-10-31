@@ -8,7 +8,7 @@ defmodule HoopsProfileWeb.Components.Navigation do
   def navigation(assigns) do
     ~H"""
     <nav class="bg-white shadow z-30 relative px-0 lg:px-5">
-      <div class="mx-auto max-w-7xl px-3 lg:px-0">
+      <div class="mx-auto max-w-7xl px-3 lg:px-0 py-0 lg:py-1">
         <div class="flex items-center h-16 justify-between">
           <.logo />
           <!-- desktop user menu / register and login -->
