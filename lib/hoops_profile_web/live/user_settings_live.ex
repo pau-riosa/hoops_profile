@@ -5,91 +5,92 @@ defmodule HoopsProfileWeb.UserSettingsLive do
 
   def render(assigns) do
     ~H"""
-    <.header>
-      Account Settings
-      <:subtitle>Manage your account email address and password settings</:subtitle>
-    </.header>
-
-    <div class="space-y-12 sm:px-10 divide-y">
-      <div class="w-full grid grid-cols-1 md:grid-cols-3">
-        <header class="w-full flex items-center justify-start gap-6">
-          <div>
-            <h3 class="text-lg font-bold leading-7 text-gray-900 sm:text-xl sm:tracking-tight">
-              Change email address
-            </h3>
-            <p class="mt-2 text-sm leading-6 text-zinc-600">
-              We will send you an email to verify the change.
-            </p>
-          </div>
-        </header>
-        <.simple_form
-          for={@email_form}
-          id="email_form"
-          phx-submit="update_email"
-          phx-change="validate_email"
-        >
-          <.input field={@email_form[:email]} type="email" label="Email" required />
-          <.input
-            field={@email_form[:current_password]}
-            name="current_password"
-            id="current_password_for_email"
-            type="password"
-            label="Current password"
-            value={@email_form_current_password}
-            required
-          />
-          <:actions>
-            <.button phx-disable-with="Changing...">Change Email</.button>
-          </:actions>
-        </.simple_form>
+    <div class="mx-auto max-w-7xl mt-10">
+      <.header>
+        Account Settings
+        <:subtitle>Manage your account email address and password settings</:subtitle>
+      </.header>
+      <div class="space-y-12 sm:px-10 divide-y">
+        <div class="w-full grid grid-cols-1 md:grid-cols-3">
+          <header class="w-full flex items-center justify-start gap-6">
+            <div>
+              <h3 class="text-lg font-bold leading-7 text-gray-900 sm:text-xl sm:tracking-tight">
+                Change email address
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-600">
+                We will send you an email to verify the change.
+              </p>
+            </div>
+          </header>
+          <.simple_form
+            for={@email_form}
+            id="email_form"
+            phx-submit="update_email"
+            phx-change="validate_email"
+          >
+            <.input field={@email_form[:email]} type="email" label="Email" required />
+            <.input
+              field={@email_form[:current_password]}
+              name="current_password"
+              id="current_password_for_email"
+              type="password"
+              label="Current password"
+              value={@email_form_current_password}
+              required
+            />
+            <:actions>
+              <.button phx-disable-with="Changing...">Change Email</.button>
+            </:actions>
+          </.simple_form>
+        </div>
+        <div class="w-full grid grid-cols-1 md:grid-cols-3">
+          <header class="w-full flex items-center justify-start gap-6">
+            <div>
+              <h3 class="text-lg font-bold leading-7 text-gray-900 sm:text-xl sm:tracking-tight">
+                Change password
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-zinc-600">
+                Update the password associated with your account.
+              </p>
+            </div>
+          </header>
+          <.simple_form
+            for={@password_form}
+            id="password_form"
+            action={~p"/users/log_in?_action=password_updated"}
+            method="post"
+            phx-change="validate_password"
+            phx-submit="update_password"
+            phx-trigger-action={@trigger_submit}
+          >
+            <.input
+              field={@password_form[:email]}
+              type="hidden"
+              id="hidden_user_email"
+              value={@current_email}
+            />
+            <.input field={@password_form[:password]} type="password" label="New password" required />
+            <.input
+              field={@password_form[:password_confirmation]}
+              type="password"
+              label="Confirm new password"
+            />
+            <.input
+              field={@password_form[:current_password]}
+              name="current_password"
+              type="password"
+              label="Current password"
+              id="current_password_for_password"
+              value={@current_password}
+              required
+            />
+            <:actions>
+              <.button phx-disable-with="Changing...">Change Password</.button>
+            </:actions>
+          </.simple_form>
+        </div>
+        <!-- Delete account -->
       </div>
-      <div class="w-full grid grid-cols-1 md:grid-cols-3">
-        <header class="w-full flex items-center justify-start gap-6">
-          <div>
-            <h3 class="text-lg font-bold leading-7 text-gray-900 sm:text-xl sm:tracking-tight">
-              Change password
-            </h3>
-            <p class="mt-2 text-sm leading-6 text-zinc-600">
-              Update the password associated with your account.
-            </p>
-          </div>
-        </header>
-        <.simple_form
-          for={@password_form}
-          id="password_form"
-          action={~p"/users/log_in?_action=password_updated"}
-          method="post"
-          phx-change="validate_password"
-          phx-submit="update_password"
-          phx-trigger-action={@trigger_submit}
-        >
-          <.input
-            field={@password_form[:email]}
-            type="hidden"
-            id="hidden_user_email"
-            value={@current_email}
-          />
-          <.input field={@password_form[:password]} type="password" label="New password" required />
-          <.input
-            field={@password_form[:password_confirmation]}
-            type="password"
-            label="Confirm new password"
-          />
-          <.input
-            field={@password_form[:current_password]}
-            name="current_password"
-            type="password"
-            label="Current password"
-            id="current_password_for_password"
-            value={@current_password}
-            required
-          />
-          <:actions>
-            <.button phx-disable-with="Changing...">Change Password</.button>
-          </:actions>
-        </.simple_form>
-      </div>
-      <!-- Delete account -->
     </div>
     """
   end
@@ -120,6 +121,7 @@ defmodule HoopsProfileWeb.UserSettingsLive do
       |> assign(:email_form, to_form(email_changeset))
       |> assign(:password_form, to_form(password_changeset))
       |> assign(:trigger_submit, false)
+      |> assign(:page_title, "Settings")
 
     {:ok, socket}
   end

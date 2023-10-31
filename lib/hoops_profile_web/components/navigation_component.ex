@@ -7,7 +7,7 @@ defmodule HoopsProfileWeb.Components.Navigation do
   @spec navigation(map()) :: Phoenix.LiveView.Rendered.t()
   def navigation(assigns) do
     ~H"""
-    <nav class="bg-white shadow z-30 relative">
+    <nav class="bg-white shadow z-30 relative px-0 lg:px-5">
       <div class="mx-auto max-w-7xl px-3 lg:px-0">
         <div class="flex items-center h-16 justify-between">
           <.logo />
@@ -17,16 +17,16 @@ defmodule HoopsProfileWeb.Components.Navigation do
             class="hidden sm:flex sm:items-center sm:justify-between sm:gap-x-3"
           >
             <.link
-              href={~p"/users/register"}
-              class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
-            >
-              Register
-            </.link>
-            <.link
               href={~p"/users/log_in"}
-              class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
+              class="text-[0.8125rem] border border-gray-200 px-3 py-1 rounded-md leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
             >
               Log in
+            </.link>
+            <.link
+              href={~p"/users/register"}
+              class="text-[0.8125rem] border border-brand bg-brand px-3 py-1 rounded-md leading-6 text-white font-semibold hover:bg-blue-700/80 hover:border-transparent"
+            >
+              Register
             </.link>
           </ul>
           <div :if={@current_user} class="relative">

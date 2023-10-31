@@ -3,7 +3,7 @@ defmodule HoopsProfileWeb.UserLoginLive do
 
   def render(assigns) do
     ~H"""
-    <div class="mx-auto max-w-sm">
+    <div class="mx-auto mt-10 max-w-sm">
       <.header class="text-center">
         Sign in to account
         <:subtitle>
@@ -38,6 +38,6 @@ defmodule HoopsProfileWeb.UserLoginLive do
   def mount(_params, _session, socket) do
     email = live_flash(socket.assigns.flash, :email)
     form = to_form(%{"email" => email}, as: "user")
-    {:ok, assign(socket, form: form), temporary_assigns: [form: form]}
+    {:ok, assign(socket, form: form), temporary_assigns: [form: form, page_title: "Sign in"]}
   end
 end
