@@ -25,7 +25,10 @@ defmodule HoopsProfileWeb.HomeLive do
                 HoopsProfile provides a dynamic and all-encompassing platform that caters to the diverse needs of the basketball community, connecting players, coaches, and fans, while promoting skill growth, sportsmanship, and lifelong love for the game.
               </p>
               <div class="mt-10 flex items-center gap-x-6">
-                <.link class="inline-flex items-center focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 border text-center rounded-md px-3 py-2 text-sm font-medium leading-4 border-transparent bg-brand text-white shadow-sm hover:bg-blue-700/50 px-3.5 py-2.5">
+                <.link
+                  navigate={~p"/users/register"}
+                  class="inline-flex items-center focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 border text-center rounded-md px-3 py-2 text-sm font-medium leading-4 border-transparent bg-brand text-white shadow-sm hover:bg-blue-700/50 px-3.5 py-2.5"
+                >
                   Get Started
                 </.link>
                 <.link class="text-sm font-semibold">
@@ -147,13 +150,16 @@ defmodule HoopsProfileWeb.HomeLive do
     <div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Ready to be the Next Basketball Icon?
+          Elevate Your Game, Elevate Your Life!
         </h2>
         <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600">
           Create your HoopsProfile today for free and start your journey to the next level.
         </p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
-          <.link class="inline-flex items-center focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 border text-center rounded-md px-3 py-2 text-sm font-medium leading-4 border-transparent bg-brand text-white shadow-sm hover:bg-blue-700/50 px-3.5 py-2.5">
+          <.link
+            navigate={~p"/users/register"}
+            class="inline-flex items-center focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 border text-center rounded-md px-3 py-2 text-sm font-medium leading-4 border-transparent bg-brand text-white shadow-sm hover:bg-blue-700/50 px-3.5 py-2.5"
+          >
             Get Started
           </.link>
           <.link class="text-sm font-semibold">

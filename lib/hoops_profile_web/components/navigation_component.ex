@@ -19,7 +19,7 @@ defmodule HoopsProfileWeb.Components.Navigation do
                   path={~p"/players"}
                   text="Find great players"
                   active_page={@active_page}
-                  page={:player}
+                  page={:players}
                 />
               </div>
             </div>
@@ -128,7 +128,7 @@ defmodule HoopsProfileWeb.Components.Navigation do
                 path={~p"/players"}
                 text="Find great players"
                 active_page={@active_page}
-                page={:player}
+                page={:players}
               />
             </div>
             <ul :if={@current_user} class="mx-auto space-y-1 px-3">
@@ -187,7 +187,7 @@ defmodule HoopsProfileWeb.Components.Navigation do
     ~H"""
     <.link
       navigate={@path}
-      class={"inline-flex items-center  px-1 pt-1 text-sm font-medium #{if @active_page == @page, do: "border-b-2 border-indigo-500 text-gray-900", else: "text-gray-500"}"}
+      class={"inline-flex items-center  px-1 pt-1 text-sm font-medium #{if @active_page == @page, do: "border-b-2 border-indigo-500 text-gray-900", else: "text-gray-500 hover:border-b-2 hover:border-gray-300"}"}
     >
       <%= @text %>
     </.link>

@@ -15,7 +15,7 @@ defmodule HoopsProfileWeb.Hooks.ActivePage do
 
   defp do_handle_active_page(view) do
     case view do
-      HoopsProfileWeb.PlayerLive -> :player
+      HoopsProfileWeb.PlayersLive -> :players
       HoopsProfileWeb.HomeLive -> :home
       _ -> :home
     end

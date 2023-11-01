@@ -17,6 +17,70 @@ defmodule HoopsProfileWeb.Components.Footer do
               © 2023 HoopsProfile All rights reserved.
             </p>
           </div>
+          <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+            <div class="md:grid md:grid-cols-2 md:gap-8">
+              <div>
+                <h3 class="text-sm font-semibold leading-6 text-gray-900">
+                  For Coaches &amp; Scouts
+                </h3>
+                <ul role="list" class="mt-6 space-y-4">
+                  <li>
+                    <.link
+                      navigate="/players"
+                      class="text-sm leading-6 text-gray-400 hover:text-gray-500"
+                    >
+                      Player Profiles
+                    </.link>
+                  </li>
+                  <li>
+                    <.link
+                      navigate="/players/rankings"
+                      class="text-sm leading-6 text-gray-400 hover:text-gray-500"
+                    >
+                      Player Rankings
+                    </.link>
+                  </li>
+                  <li>
+                    <.link
+                      navigate="/players/comparisons"
+                      class="text-sm leading-6 text-gray-400 hover:text-gray-500"
+                    >
+                      Player Comparisons
+                    </.link>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 class="text-sm font-semibold leading-6 text-gray-900">For Players</h3>
+                <ul role="list" class="mt-6 space-y-4">
+                  <li>
+                    <.link
+                      navigate="/players"
+                      class="text-sm leading-6 text-gray-400 hover:text-gray-500"
+                    >
+                      Want to bring your A game?
+                    </.link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="md:grid md:grid-cols-2 md:gap-8">
+              <div>
+                <h3 class="text-sm font-semibold leading-6 text-gray-900">Company</h3>
+                <ul role="list" class="mt-6 space-y-4">
+                  <li>
+                    <.link
+                      navigate="/about"
+                      class="text-sm leading-6 text-gray-400 hover:text-gray-500"
+                    >
+                      About
+                    </.link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

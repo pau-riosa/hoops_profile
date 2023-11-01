@@ -1,4 +1,4 @@
-defmodule HoopsProfileWeb.PlayerLive do
+defmodule HoopsProfileWeb.PlayersLive do
   @moduledoc false
   use HoopsProfileWeb, :live_view
 

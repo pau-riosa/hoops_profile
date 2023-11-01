@@ -3,8 +3,12 @@
 
 ## Changelog
 
-- [x] project setup
-- [ ] in progress -> working on search UI
+- [x] Project setup
+- [x] Search Player UI
     - filters
         - [x] position
         - [x] levels
+- [x] Footer
+- [ ] Player Profile UI
+- [ ] Error Views/Templates
+- [ ] Edit Profile
