@@ -478,7 +478,7 @@ defmodule HoopsProfileWeb.CoreComponents do
         <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:tracking-tight">
           <%= render_slot(@inner_block) %>
         </h2>
-        <p :if={@subtitle != []} class="mt-2 text-sm leading-6 text-zinc-600">
+        <p :if={@subtitle != []} class="mt-2 text-sm leading-6 text-gray-500 lg:max-w-3xl">
           <%= render_slot(@subtitle) %>
         </p>
       </div>

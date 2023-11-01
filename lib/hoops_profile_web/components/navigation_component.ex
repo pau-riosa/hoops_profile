@@ -11,9 +11,19 @@ defmodule HoopsProfileWeb.Components.Navigation do
       <nav class="bg-white shadow z-30 relative px-0 lg:px-5">
         <div class="mx-auto max-w-7xl px-3 lg:px-0 py-0 lg:py-1">
           <div class="flex items-center h-16 justify-between">
-            <.logo />
+            <div class="flex items-center justify-between gap-x-3">
+              <.logo />
+              <div class="hidden sm:flex sm:items-center sm:justify-between sm:gap-x-3">
+                <.link
+                  href={~p"/players"}
+                  class="text-[0.8125rem] px-3 py-1 rounded-md leading-6 text-gray-500 font-semibold hover:text-zinc-700"
+                >
+                  Find great players
+                </.link>
+              </div>
+            </div>
             <!-- desktop user menu / register and login -->
-            <ul
+            <div
               :if={is_nil(@current_user)}
               class="hidden sm:flex sm:items-center sm:justify-between sm:gap-x-3"
             >
@@ -29,7 +39,7 @@ defmodule HoopsProfileWeb.Components.Navigation do
               >
                 Register
               </.link>
-            </ul>
+            </div>
             <div :if={@current_user} class="relative">
               <.avatar
                 user={@current_user}

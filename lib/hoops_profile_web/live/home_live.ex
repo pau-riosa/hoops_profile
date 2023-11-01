@@ -19,7 +19,7 @@ defmodule HoopsProfileWeb.HomeLive do
           <div class="relative px-6 py-20 lg:px-0 lg:py-30 lg:pr-0">
             <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
               <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl leading-relaxed">
-                Elevate Your Game, Build Your Legacy
+                Uncover a World of Exceptional Athletes
               </h1>
               <p class="mt-6 text-lg leading-8 text-gray-600">
                 HoopsProfile provides a dynamic and all-encompassing platform that caters to the diverse needs of the basketball community, connecting players, coaches, and fans, while promoting skill growth, sportsmanship, and lifelong love for the game.

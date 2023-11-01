@@ -77,6 +77,7 @@ defmodule HoopsProfileWeb.Router do
     live_session :current_user,
       on_mount: [{HoopsProfileWeb.UserAuth, :mount_current_user}] do
       live "/", HomeLive, :index
+      live "/players", PlayerLive, :index
       live "/users/confirm/:token", UserConfirmationLive, :edit
       live "/users/confirm", UserConfirmationInstructionsLive, :new
     end
