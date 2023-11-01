@@ -9,6 +9,6 @@
         - [x] position
         - [x] levels
 - [x] Footer
-- [ ] Player Profile UI
+- [x] Player Profile UI
 - [ ] Error Views/Templates
 - [ ] Edit Profile
