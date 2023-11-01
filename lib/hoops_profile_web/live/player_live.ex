@@ -19,7 +19,7 @@ defmodule HoopsProfileWeb.PlayerLive do
               <.icon name="hero-x-mark" class="h-6 w-6" />
             </button>
           </div>
-          <.simple_form for={@form} id="mobile_filters" phx-change="search">
+          <form id="mobile_filters" phx-change="search" class="divide-y divide-gray-100">
             <div id="m-filter-levels" class="pb-4 pt-4">
               <fieldset>
                 <legend class="w-full px-2">
@@ -32,6 +32,56 @@ defmodule HoopsProfileWeb.PlayerLive do
                       JS.toggle(to: "#m-filter-levels .open")
                       |> JS.toggle(to: "#m-filter-levels .close")
                       |> JS.toggle(to: "#m-filter-levels .options")
+                    }
+                  >
+                    <span class="text-sm font-bold text-gray-900">Levels</span>
+                    <span class="ml-6 flex h-7 items-center">
+                      <.icon name="hero-chevron-down" class="h-5 w-5 open hidden" />
+                      <.icon name="hero-chevron-down" class="h-5 w-5 -rotate-180 close block" />
+                    </span>
+                  </button>
+                </legend>
+                <div class="px-4 py-4 options block">
+                  <div class="space-y-6">
+                    <div class="flex items-center">
+                      <.input type="checkbox" name="search[levels][]" value="1" class="form-checkbox" />
+                      <span class="ml-2 text-sm text-gray-700">Pro</span>
+                    </div>
+
+                    <div class="flex items-center">
+                      <.input type="checkbox" name="search[levels][]" value="1" class="form-checkbox" />
+                      <span class="ml-2 text-sm text-gray-700">Semi-pro</span>
+                    </div>
+
+                    <div class="flex items-center">
+                      <.input type="checkbox" name="search[levels][]" value="1" class="form-checkbox" />
+                      <span class="ml-2 text-sm text-gray-700">Collegiate</span>
+                    </div>
+                    <div class="flex items-center">
+                      <.input type="checkbox" name="search[levels][]" value="1" class="form-checkbox" />
+                      <span class="ml-2 text-sm text-gray-700">Senior High School</span>
+                    </div>
+                    <div class="flex items-center">
+                      <.input type="checkbox" name="search[levels][]" value="1" class="form-checkbox" />
+                      <span class="ml-2 text-sm text-gray-700">Elementary</span>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+            <div id="m-filter-positions" class="pb-4 pt-4">
+              <fieldset>
+                <legend class="w-full px-2">
+                  <button
+                    type="button"
+                    aria-controls="filter-section-1"
+                    aria-expanded="false"
+                    class="flex w-full items-center justify-between p-2 text-gray-400 hover:text-gray-500"
+                    phx-click={
+                      JS.toggle(to: "#m-filter-positions .open")
+                      |> JS.toggle(to: "#m-filter-positions .close")
+                      |> JS.toggle(to: "#m-filter-positions .options")
                     }
                   >
                     <span class="text-sm font-bold text-gray-900">Position</span>
@@ -86,7 +136,7 @@ defmodule HoopsProfileWeb.PlayerLive do
                 </div>
               </fieldset>
             </div>
-          </.simple_form>
+          </form>
         </div>
       </div>
     </div>
@@ -109,7 +159,12 @@ defmodule HoopsProfileWeb.PlayerLive do
             <.icon name="hero-plus" class="ml-1 h-5 w-5 flex-shrink-0 text-gray-400" />
           </button>
           <div class="hidden lg:block">
-            <.simple_form for={@form} id="desktop_filters" phx-change="search">
+            <form
+              method="post"
+              id="desktop_filters"
+              phx-change="search"
+              class="divide-y divide-gray-100"
+            >
               <div id="filter-levels" class="pb-4 pt-4">
                 <fieldset>
                   <legend class="w-full px-2">
@@ -122,6 +177,80 @@ defmodule HoopsProfileWeb.PlayerLive do
                         JS.toggle(to: "#filter-levels .open")
                         |> JS.toggle(to: "#filter-levels .close")
                         |> JS.toggle(to: "#filter-levels .options")
+                      }
+                    >
+                      <span class="text-sm font-bold text-gray-900">Levels</span>
+                      <span class="ml-6 flex h-7 items-center">
+                        <.icon name="hero-chevron-down" class="h-5 w-5 open hidden" />
+                        <.icon name="hero-chevron-down" class="h-5 w-5 -rotate-180 close block" />
+                      </span>
+                    </button>
+                  </legend>
+                  <div class="px-4 py-4 options block">
+                    <div class="space-y-6">
+                      <div class="flex items-center">
+                        <.input
+                          type="checkbox"
+                          name="search[levels][]"
+                          value="1"
+                          class="form-checkbox"
+                        />
+                        <span class="ml-2 text-sm text-gray-700">Pro</span>
+                      </div>
+
+                      <div class="flex items-center">
+                        <.input
+                          type="checkbox"
+                          name="search[levels][]"
+                          value="1"
+                          class="form-checkbox"
+                        />
+                        <span class="ml-2 text-sm text-gray-700">Semi-pro</span>
+                      </div>
+
+                      <div class="flex items-center">
+                        <.input
+                          type="checkbox"
+                          name="search[levels][]"
+                          value="1"
+                          class="form-checkbox"
+                        />
+                        <span class="ml-2 text-sm text-gray-700">Collegiate</span>
+                      </div>
+                      <div class="flex items-center">
+                        <.input
+                          type="checkbox"
+                          name="search[levels][]"
+                          value="1"
+                          class="form-checkbox"
+                        />
+                        <span class="ml-2 text-sm text-gray-700">Senior High School</span>
+                      </div>
+                      <div class="flex items-center">
+                        <.input
+                          type="checkbox"
+                          name="search[levels][]"
+                          value="1"
+                          class="form-checkbox"
+                        />
+                        <span class="ml-2 text-sm text-gray-700">Elementary</span>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div id="filter-positions" class="pb-4 pt-4">
+                <fieldset>
+                  <legend class="w-full px-2">
+                    <button
+                      type="button"
+                      aria-controls="filter-section-1"
+                      aria-expanded="false"
+                      class="flex w-full items-center justify-between p-2 text-gray-400 hover:text-gray-500"
+                      phx-click={
+                        JS.toggle(to: "#filter-positions .open")
+                        |> JS.toggle(to: "#filter-positions .close")
+                        |> JS.toggle(to: "#filter-positions .options")
                       }
                     >
                       <span class="text-sm font-bold text-gray-900">Position</span>
@@ -176,7 +305,7 @@ defmodule HoopsProfileWeb.PlayerLive do
                   </div>
                 </fieldset>
               </div>
-            </.simple_form>
+            </form>
           </div>
         </aside>
       </div>
