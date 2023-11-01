@@ -3,6 +3,7 @@ defmodule HoopsProfileWeb.Components.Navigation do
   use HoopsProfileWeb, :html
   alias HoopsProfile.Accounts.User
 
+  attr(:active_page, :atom)
   attr(:current_user, User)
   @spec navigation(map()) :: Phoenix.LiveView.Rendered.t()
   def navigation(assigns) do
@@ -10,16 +11,16 @@ defmodule HoopsProfileWeb.Components.Navigation do
     <div class="sticky top-0 z-40">
       <nav class="bg-white shadow z-30 relative px-0 lg:px-5">
         <div class="mx-auto max-w-7xl px-3 lg:px-0 py-0 lg:py-1">
-          <div class="flex items-center h-16 justify-between">
-            <div class="flex items-center justify-between gap-x-3">
+          <div class="flex h-16 justify-between">
+            <div class="flex">
               <.logo />
-              <div class="hidden sm:flex sm:items-center sm:justify-between sm:gap-x-3">
-                <.link
-                  href={~p"/players"}
-                  class="text-[0.8125rem] px-3 py-1 rounded-md leading-6 text-gray-500 font-semibold hover:text-zinc-700"
-                >
-                  Find great players
-                </.link>
+              <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                <.desktop_active_link
+                  path={~p"/players"}
+                  text="Find great players"
+                  active_page={@active_page}
+                  page={:player}
+                />
               </div>
             </div>
             <!-- desktop user menu / register and login -->
@@ -41,21 +42,23 @@ defmodule HoopsProfileWeb.Components.Navigation do
               </.link>
             </div>
             <div :if={@current_user} class="relative">
-              <.avatar
-                user={@current_user}
-                phx-click={
-                  JS.toggle(
-                    to: "#user-menu",
-                    in: {"ease-out duration-300", "opacity-0", "opacity-100"},
-                    out: {"ease-out duration-300", "opacity-100", "opacity-0"},
-                    time: 300
-                  )
-                }
-              />
+              <div class="mt-2">
+                <.avatar
+                  user={@current_user}
+                  phx-click={
+                    JS.toggle(
+                      to: "#user-menu",
+                      in: {"ease-out duration-300", "opacity-0", "opacity-100"},
+                      out: {"ease-out duration-300", "opacity-100", "opacity-0"},
+                      time: 300
+                    )
+                  }
+                />
+              </div>
               <div
                 phx-click-away={JS.hide(to: "#user-menu")}
                 id="user-menu"
-                class="absolute right-0 z-10 mt-5 w-fit min-w-[200px] whitespace-nowrap origin-top-right rounded-md bg-white divide-y divide-gray-100 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+                class="absolute right-0 z-10 mt-7 w-fit min-w-[200px] whitespace-nowrap origin-top-right rounded-md bg-white divide-y divide-gray-100 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
               >
                 <ul class="mx-auto space-y-1 px-3 ">
                   <li class="text-[0.8125rem] leading-6 text-zinc-900">
@@ -119,7 +122,15 @@ defmodule HoopsProfileWeb.Components.Navigation do
           class="sm:hidden hidden absolute z-50 bg-white border border-b-2 border-gray-200 w-full"
           id="mobile-menu"
         >
-          <div class="border-t border-gray-200 pb-3 pt-4">
+          <div class="border-t border-gray-200 pb-3 pt-4 divide-y-2 divide-gray-100 space-y-3">
+            <div class="px-2 space-y-1">
+              <.mobile_active_link
+                path={~p"/players"}
+                text="Find great players"
+                active_page={@active_page}
+                page={:player}
+              />
+            </div>
             <ul :if={@current_user} class="mx-auto space-y-1 px-3">
               <li class="text-[0.8125rem] leading-6 text-zinc-900">
                 <%= @current_user.email %>
@@ -164,6 +175,38 @@ defmodule HoopsProfileWeb.Components.Navigation do
         </div>
       </nav>
     </div>
+    """
+  end
+
+  attr(:path, :string)
+  attr(:text, :string)
+  attr(:page, :atom)
+  attr(:active_page, :atom)
+  @spec desktop_active_link(map()) :: Phoenix.LiveView.Rendered.t()
+  def desktop_active_link(assigns) do
+    ~H"""
+    <.link
+      navigate={@path}
+      class={"inline-flex items-center  px-1 pt-1 text-sm font-medium #{if @active_page == @page, do: "border-b-2 border-indigo-500 text-gray-900", else: "text-gray-500"}"}
+    >
+      <%= @text %>
+    </.link>
+    """
+  end
+
+  attr(:path, :string)
+  attr(:text, :string)
+  attr(:page, :atom)
+  attr(:active_page, :atom)
+  @spec mobile_active_link(map()) :: Phoenix.LiveView.Rendered.t()
+  def mobile_active_link(assigns) do
+    ~H"""
+    <.link
+      navigate={@path}
+      class={"inline-flex items-center  px-3 py-2 text-sm font-medium #{if @active_page == @page, do: "border-l-2 border-brand text-brand bg-indigo-100 w-full", else: "text-gray-500"}"}
+    >
+      <%= @text %>
+    </.link>
     """
   end
 end

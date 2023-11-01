@@ -5,7 +5,7 @@ defmodule HoopsProfileWeb.Components.Logo do
   @spec logo(map()) :: Phoenix.LiveView.Rendered.t()
   def logo(assigns) do
     ~H"""
-    <a href="/">
+    <a href="/" class="flex flex-shrink-0 items-center">
       <img src={~p"/images/logo.svg"} width="250" />
     </a>
     """
