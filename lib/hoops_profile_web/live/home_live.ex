@@ -5,7 +5,7 @@ defmodule HoopsProfileWeb.HomeLive do
   @impl Phoenix.LiveView
   def render(assigns) do
     ~H"""
-    <div class="relative">
+    <div class="relative -mt-3">
       <div class="mx-auto max-w-7xl">
         <div class="relative z-10 pt-8 lg:w-full lg:max-w-2xl">
           <svg
@@ -41,6 +41,59 @@ defmodule HoopsProfileWeb.HomeLive do
           class="aspect-[3/2] object-cover lg:aspect-auto lg:h-full lg:w-full"
           src="https://images.unsplash.com/photo-1484634749340-ada5df46442b?auto=format&fit=crop&q=80&w=3576&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         />
+      </div>
+    </div>
+    <div class="overflow-hidden bg-gray-900 py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+          <div class="lg:ml-auto lg:pl-4 lg:pt-4">
+            <div class="lg:max-w-lg">
+              <h2 class="text-base font-semibold leading-7 text-indigo-400">
+                Empower, Connect, Inspire
+              </h2>
+              <p class="mt-2 text-3xl font-bold tracking-tight text-gray-300 sm:text-4xl">
+                What is HoopsProfile?
+              </p>
+              <p class="mt-6 text-lg leading-8 text-gray-200">
+                To create a welcoming and inclusive community that connects players, coaches, and fans, encouraging collaboration, mentorship, and a sense of belonging within the basketball world.
+              </p>
+              <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
+                <div class="relative pl-9">
+                  <dt class="inline font-semibold text-gray-300">
+                    <.icon
+                      name="hero-user-solid"
+                      class="absolute left-1 top-1 h-5 w-5 text-indigo-400"
+                    /> Empower Basketball Aspirants
+                  </dt>
+                </div>
+
+                <div class="relative pl-9">
+                  <dt class="inline font-semibold text-gray-300">
+                    <.icon
+                      name="hero-user-group-solid"
+                      class="absolute left-1 top-1 h-5 w-5 text-indigo-400"
+                    /> Connect the Basketball Community
+                  </dt>
+                </div>
+                <div class="relative pl-9">
+                  <dt class="inline font-semibold text-gray-300">
+                    <.icon
+                      name="hero-heart-solid"
+                      class="absolute left-1 top-1 h-5 w-5 text-indigo-400"
+                    /> Inspire Lifelong Love for Basketball
+                  </dt>
+                </div>
+              </dl>
+            </div>
+          </div>
+          <div class="flex items-start justify-end lg:order-first">
+            <img
+              src={~p"/images/image-100.png"}
+              alt="Find the right team-player match with HoopsProfile"
+              class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+            />
+          </div>
+        </div>
       </div>
     </div>
     """
