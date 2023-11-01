@@ -308,6 +308,58 @@ defmodule HoopsProfileWeb.PlayerLive do
             </form>
           </div>
         </aside>
+        <!-- Players -->
+        <div class="mt-6 lg:col-span-2 lg:mt-0 xl:col-span-3">
+          <div class="space-y-16 sm:space-y-24">
+            <div class="flow-root mt-4 lg:mt-6">
+              <div class="md:-my-6 divide-y divide-gray-100">
+                <.link
+                  :for={_ <- 1..3}
+                  class="flex py-4 md:p-6 rounded-md cursor-pointer md:hover:bg-indigo-100"
+                >
+                  <div class="min-w-0 flex-1 lg:flex lg:flex-col">
+                    <div class="lg:flex-1">
+                      <div class="md:flex justify-between align-top">
+                        <h4 class="text-md sm:text-lg font-medium text-gray-900">
+                          PBA Season 23 MVP | All Defensive Team | All Star | 3x Champion
+                        </h4>
+                        <p class="flex-none text-sm pt-2 md:ml-6 sm:mt-0">
+                          <span class="text-blue-600">
+                            <.icon name="hero-check-circle-solid" class="-mt-1 mr-1 inline-block" />
+                            Open to offers
+                          </span>
+                        </p>
+                      </div>
+                      <div class="mt-2 text-gray-500 hidden sm:block">
+                        <p class="line-clamp-5">
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                      </div>
+                      <div class="mt-2 sm:flex sm:border-gray-200 text-xs text-gray-400 align-middle sm:mt-4">
+                        <div class="space-x-1">
+                          <.icon name="hero-trophy" class="-mt-1 mr-1" />
+                          <span class="mt-2">MVP</span>
+                          <span class="mt-2">Mythical 5</span>
+                        </div>
+                        <div class="mt-2 sm:mt-0 space-x-1 border-l border-gray-200 sm:pl-4 sm:ml-4">
+                          <.icon name="hero-globe-alt" class="-mt-1 mr-1" />
+                          <span class="mt-2">Philippines</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="ml-4 flex-shrink-0 sm:order-first sm:m-0 sm:mr-6">
+                    <img
+                      src="https://images.unsplash.com/photo-1522027353578-d23a7be6d503?auto=format&fit=crop&q=80&w=2225&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      class="col-start-2 col-end-3 h-20 w-20 rounded-lg object-cover object-center sm:col-start-1 sm:row-span-2 sm:row-start-1 sm:h-24 sm:w-24 lg:h-36 lg:w-36"
+                    />
+                  </div>
+                </.link>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     """
