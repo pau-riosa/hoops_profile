@@ -96,6 +96,72 @@ defmodule HoopsProfileWeb.HomeLive do
         </div>
       </div>
     </div>
+    <div class="bg-white">
+      <div class="mx-auto max-w-7xl px-6 py-24 sm:pt-32 lg:px-8 lg:py-40">
+        <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+          <div class="lg:col-span-5">
+            <h2 class="text-2xl font-bold leading-10 tracking-tight text-gray-900">
+              Frequently asked questions
+            </h2>
+            <p class="mt-4 text-base leading-7 text-gray-600">
+              If you can't find the answer you're looking for in this section, please don't hesitate to contact us by email
+              <.link
+                href="mailto:support@hoopsprofile.com"
+                class="font-semibold text-indigo-600 hover:text-indigo-500"
+              >
+                support@hoopsprofile.com
+              </.link>
+            </p>
+          </div>
+          <div class="mt-10 lg:col-span-7 lg:mt-0">
+            <dl class="space-y-10">
+              <div>
+                <dt class="text-base font-semibold leading-7 text-black">
+                  Does HoopsProfile cost anything for players?
+                </dt>
+                <dd class="mt-2 text-base leading-7 text-gray-600">
+                  HoopsProfile is always free for players. We are committed to providing a free platform for players to showcase their skills and connect with coaches and teams.
+                </dd>
+              </div>
+              <div>
+                <dt class="text-base font-semibold leading-7 text-black">
+                  So what is the subscription for?
+                </dt>
+                <dd class="mt-2 text-base leading-7 text-gray-600">
+                  The subscription is for coaches and teams that want to use HoopsProfile to look for and reach out to players. It allows them to access more detailed information about players.
+                </dd>
+              </div>
+              <div>
+                <dt class="text-base font-semibold leading-7 text-black">
+                  Can I cancel my subscription at any time?
+                </dt>
+                <dd class="mt-2 text-base leading-7 text-gray-600">
+                  Yes, you can cancel your subscription at any time. You will still have access to the subscription until the end of the billing period.
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Ready to be the Next Basketball Icon?
+        </h2>
+        <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600">
+          Create your HoopsProfile today for free and start your journey to the next level.
+        </p>
+        <div class="mt-10 flex items-center justify-center gap-x-6">
+          <.link class="inline-flex items-center focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 border text-center rounded-md px-3 py-2 text-sm font-medium leading-4 border-transparent bg-brand text-white shadow-sm hover:bg-blue-700/50 px-3.5 py-2.5">
+            Get Started
+          </.link>
+          <.link class="text-sm font-semibold">
+            Learn more <.icon name="hero-arrow-small-right" />
+          </.link>
+        </div>
+      </div>
+    </div>
     """
   end
 

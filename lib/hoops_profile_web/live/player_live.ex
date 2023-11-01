@@ -352,7 +352,7 @@ defmodule HoopsProfileWeb.PlayerLive do
                   <div class="ml-4 flex-shrink-0 sm:order-first sm:m-0 sm:mr-6">
                     <img
                       src="https://images.unsplash.com/photo-1522027353578-d23a7be6d503?auto=format&fit=crop&q=80&w=2225&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      class="col-start-2 col-end-3 h-20 w-20 rounded-lg object-cover object-center sm:col-start-1 sm:row-span-2 sm:row-start-1 sm:h-24 sm:w-24 lg:h-36 lg:w-36"
+                      class="blur-sm col-start-2 col-end-3 h-20 w-20 rounded-lg object-cover object-center sm:col-start-1 sm:row-span-2 sm:row-start-1 sm:h-24 sm:w-24 lg:h-36 lg:w-36"
                     />
                   </div>
                 </.link>
