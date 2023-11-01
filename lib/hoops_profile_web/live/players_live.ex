@@ -314,7 +314,8 @@ defmodule HoopsProfileWeb.PlayersLive do
             <div class="flow-root mt-4 lg:mt-6">
               <div class="md:-my-6 divide-y divide-gray-100">
                 <.link
-                  :for={_ <- 1..3}
+                  :for={id <- 1..3}
+                  navigate={~p"/players/#{id}"}
                   class="flex py-4 md:p-6 rounded-md cursor-pointer md:hover:bg-indigo-100"
                 >
                   <div class="min-w-0 flex-1 lg:flex lg:flex-col">

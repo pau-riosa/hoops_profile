@@ -66,7 +66,10 @@ defmodule HoopsProfileWeb.Router do
     pipe_through [:browser, :require_authenticated_user]
 
     live_session :require_authenticated_user,
-      on_mount: [{HoopsProfileWeb.UserAuth, :ensure_authenticated}] do
+      on_mount: [
+        {HoopsProfileWeb.UserAuth, :ensure_authenticated},
+        HoopsProfileWeb.Hooks.ActivePage
+      ] do
       live "/users/settings", UserSettingsLive, :edit
       live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
     end
@@ -84,6 +87,7 @@ defmodule HoopsProfileWeb.Router do
       ] do
       live "/", HomeLive, :index
       live "/players", PlayersLive, :index
+      live "/players/:player_id", PlayerProfileLive, :player_profile
       live "/users/confirm/:token", UserConfirmationLive, :edit
       live "/users/confirm", UserConfirmationInstructionsLive, :new
     end

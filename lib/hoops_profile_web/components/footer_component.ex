@@ -5,7 +5,7 @@ defmodule HoopsProfileWeb.Components.Footer do
   @spec footer(map()) :: Phoenix.LiveView.Rendered.t()
   def footer(assigns) do
     ~H"""
-    <div class="mx-auto mt-8 sm:mt-32 max-w-7xl px-3 lg:px-0">
+    <div class="mx-auto mt-8 sm:mt-32 max-w-7xl sm:px-3 lg:px-5">
       <footer
         aria-labelledby="footer-heading"
         class="relative border-t border-gray-900/10 py-24 sm:py-32"
@@ -30,22 +30,6 @@ defmodule HoopsProfileWeb.Components.Footer do
                       class="text-sm leading-6 text-gray-400 hover:text-gray-500"
                     >
                       Player Profiles
-                    </.link>
-                  </li>
-                  <li>
-                    <.link
-                      navigate="/players/rankings"
-                      class="text-sm leading-6 text-gray-400 hover:text-gray-500"
-                    >
-                      Player Rankings
-                    </.link>
-                  </li>
-                  <li>
-                    <.link
-                      navigate="/players/comparisons"
-                      class="text-sm leading-6 text-gray-400 hover:text-gray-500"
-                    >
-                      Player Comparisons
                     </.link>
                   </li>
                 </ul>
