@@ -138,6 +138,12 @@ defmodule HoopsProfileWeb.Components.Navigation do
                 active_page={@active_page}
                 page={:players}
               />
+              <.mobile_active_link
+                path={~p"/dashboard"}
+                text="Dashboard"
+                active_page={@active_page}
+                page={:dashboard}
+              />
             </div>
             <ul :if={@current_user} class="mx-auto space-y-1 px-3">
               <li class="text-[0.8125rem] leading-6 text-zinc-900">
