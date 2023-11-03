@@ -144,7 +144,7 @@ defmodule HoopsProfileWeb.PlayersLive do
       <.header>
         Find great players
         <:subtitle>
-          Whether you're a coach, scout, or sports enthusiast, our resource will help you find the top talent you're looking for to elevate your team or simply celebrate their incredible abilities. Join us in the quest to find great players who redefine the game."
+          Whether you're a coach, scout, or sports enthusiast, our resource will help you find the top talent you're looking for to elevate your team or simply celebrate their incredible abilities. Join us in the quest to find great players who will redefine the game.
         </:subtitle>
       </.header>
       <div class="pt-6 lg:pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">

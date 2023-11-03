@@ -70,6 +70,8 @@ defmodule HoopsProfileWeb.Router do
         {HoopsProfileWeb.UserAuth, :ensure_authenticated},
         HoopsProfileWeb.Hooks.ActivePage
       ] do
+      live "/dashboard", DashboardLive, :dashboard
+      live "/players/:player_id/edit", EditPlayerProfileLive, :edit_player_profile
       live "/users/settings", UserSettingsLive, :edit
       live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
     end

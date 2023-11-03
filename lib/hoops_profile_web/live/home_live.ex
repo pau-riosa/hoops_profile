@@ -66,7 +66,7 @@ defmodule HoopsProfileWeb.HomeLive do
                     <.icon
                       name="hero-user-solid"
                       class="absolute left-1 top-1 h-5 w-5 text-indigo-400"
-                    /> Empower Basketball Aspirants
+                    /> Exposure and Networking
                   </dt>
                 </div>
 
@@ -75,7 +75,7 @@ defmodule HoopsProfileWeb.HomeLive do
                     <.icon
                       name="hero-user-group-solid"
                       class="absolute left-1 top-1 h-5 w-5 text-indigo-400"
-                    /> Connect the Basketball Community
+                    /> Skills and Development
                   </dt>
                 </div>
                 <div class="relative pl-9">
@@ -83,7 +83,7 @@ defmodule HoopsProfileWeb.HomeLive do
                     <.icon
                       name="hero-heart-solid"
                       class="absolute left-1 top-1 h-5 w-5 text-indigo-400"
-                    /> Inspire Lifelong Love for Basketball
+                    /> Recruitment Opportunities
                   </dt>
                 </div>
               </dl>
@@ -153,7 +153,7 @@ defmodule HoopsProfileWeb.HomeLive do
           Elevate Your Game, Elevate Your Life!
         </h2>
         <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600">
-          Create your HoopsProfile today for free and start your journey to the next level.
+          Create your HoopsProfile today for free and start your journey to be the next basketball sensation.
         </p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
           <.link

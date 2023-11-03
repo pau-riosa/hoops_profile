@@ -66,6 +66,14 @@ defmodule HoopsProfileWeb.Components.Navigation do
                   </li>
                   <li>
                     <.link
+                      href={~p"/dashboard"}
+                      class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
+                    >
+                      Dashboard
+                    </.link>
+                  </li>
+                  <li>
+                    <.link
                       href={~p"/users/settings"}
                       class="text-[0.8125rem] leading-6 text-zinc-900 font-semibold hover:text-zinc-700"
                     >
