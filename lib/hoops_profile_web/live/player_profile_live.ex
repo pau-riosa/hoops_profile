@@ -2,7 +2,7 @@ defmodule HoopsProfileWeb.PlayerProfileLive do
   @moduledoc false
   use HoopsProfileWeb, :live_view
 
-  @impl Phoenix.LiveComponent
+  @impl Phoenix.LiveView
   def render(assigns) do
     ~H"""
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-3">
@@ -115,7 +115,7 @@ defmodule HoopsProfileWeb.PlayerProfileLive do
     """
   end
 
-  @impl Phoenix.LiveComponent
+  @impl Phoenix.LiveView
   def mount(_params, _uri, socket) do
     {:ok, socket}
   end

@@ -50,8 +50,8 @@ defmodule HoopsProfileWeb.Router do
 
     live_session :redirect_if_user_is_authenticated,
       on_mount: [
-        {HoopsProfileWeb.UserAuth, :redirect_if_user_is_authenticated},
-        HoopsProfileWeb.Hooks.ActivePage
+        {HoopsProfileWeb.Hooks.OnMount, :handle_active_page},
+        {HoopsProfileWeb.UserAuth, :redirect_if_user_is_authenticated}
       ] do
       live "/users/register", UserRegistrationLive, :new
       live "/users/log_in", UserLoginLive, :new
@@ -67,10 +67,12 @@ defmodule HoopsProfileWeb.Router do
 
     live_session :require_authenticated_user,
       on_mount: [
-        {HoopsProfileWeb.UserAuth, :ensure_authenticated},
-        HoopsProfileWeb.Hooks.ActivePage
+        {HoopsProfileWeb.Hooks.OnMount, :handle_active_page},
+        {HoopsProfileWeb.UserAuth, :ensure_authenticated}
       ] do
       live "/dashboard", DashboardLive, :dashboard
+      live "/dashboard/archives", DashboardLive, :archive
+      live "/dashboard/offers", DashboardLive, :offer
       live "/players/:player_id/edit", EditPlayerProfileLive, :edit_player_profile
       live "/users/settings", UserSettingsLive, :edit
       live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
@@ -84,14 +86,15 @@ defmodule HoopsProfileWeb.Router do
 
     live_session :current_user,
       on_mount: [
-        {HoopsProfileWeb.UserAuth, :mount_current_user},
-        HoopsProfileWeb.Hooks.ActivePage
+        {HoopsProfileWeb.Hooks.OnMount, :handle_active_page},
+        {HoopsProfileWeb.UserAuth, :mount_current_user}
       ] do
-      live "/", HomeLive, :index
-      live "/players", PlayersLive, :index
+      live "/", HomeLive, :home
+      live "/players", PlayersLive, :players
       live "/players/:player_id", PlayerProfileLive, :player_profile
       live "/users/confirm/:token", UserConfirmationLive, :edit
       live "/users/confirm", UserConfirmationInstructionsLive, :new
+      live "/pricing", PricingLive, :pricing
     end
   end
 end

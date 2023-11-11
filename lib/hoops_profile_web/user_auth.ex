@@ -4,7 +4,6 @@ defmodule HoopsProfileWeb.UserAuth do
 
   import Plug.Conn
   import Phoenix.Controller
-
   alias HoopsProfile.Accounts
 
   # Make the remember me cookie valid for 60 days.
@@ -114,36 +113,39 @@ defmodule HoopsProfileWeb.UserAuth do
 
   ## `on_mount` arguments
 
-    * `:mount_current_user` - Assigns current_user
-      to socket assigns based on user_token, or nil if
-      there's no user_token or no matching user.
+  * `:mount_current_user` - Assigns current_user
+  to socket assigns based on user_token, or nil if
+  there's no user_token or no matching user.
 
-    * `:ensure_authenticated` - Authenticates the user from the session,
-      and assigns the current_user to socket assigns based
-      on user_token.
-      Redirects to login page if there's no logged user.
+  * `:ensure_authenticated` - Authenticates the user from the session,
+  and assigns the current_user to socket assigns based
+  on user_token.
+  Redirects to login page if there's no logged user.
 
-    * `:redirect_if_user_is_authenticated` - Authenticates the user from the session.
-      Redirects to signed_in_path if there's a logged user.
+  * `:redirect_if_user_is_authenticated` - Authenticates the user from the session.
+  Redirects to signed_in_path if there's a logged user.
 
   ## Examples
 
   Use the `on_mount` lifecycle macro in LiveViews to mount or authenticate
   the current_user:
 
-      defmodule HoopsProfileWeb.PageLive do
-        use HoopsProfileWeb, :live_view
+  defmodule HoopsProfileWeb.PageLive do
+    use HoopsProfileWeb, :live_view
 
-        on_mount {HoopsProfileWeb.UserAuth, :mount_current_user}
-        ...
-      end
+    on_mount {HoopsProfileWeb.UserAuth, :mount_current_user}
+    ...
+  end
 
   Or use the `live_session` of your router to invoke the on_mount callback:
 
-      live_session :authenticated, on_mount: [{HoopsProfileWeb.UserAuth, :ensure_authenticated}] do
-        live "/profile", ProfileLive, :index
-      end
+  live_session :authenticated, on_mount: [{HoopsProfileWeb.UserAuth, :ensure_authenticated}] do
+    live "/profile", ProfileLive, :index
+  end
   """
+
+  @spec on_mount(atom(), map(), map(), Phoenix.LiveView.Socket.t()) ::
+          {:cont, Phoenix.LiveView.Socket.t()} | {:halt, Phoenix.LiveView.Socket.t()}
   def on_mount(:mount_current_user, _params, session, socket) do
     {:cont, mount_current_user(socket, session)}
   end

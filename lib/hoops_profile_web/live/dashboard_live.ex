@@ -69,7 +69,7 @@ defmodule HoopsProfileWeb.DashboardLive do
                 </div>
               </div>
             </.link>
-            <.link patch={~p"/dashboard/archived"}>
+            <.link patch={~p"/dashboard/archives"}>
               <div class="overflow-hidden rounded-lg bg-white ring-1 ring-inset ring-gray-200">
                 <div class="px-4 py-5 sm:p-6">
                   <dt class="text-sm font-medium leading-6 text-gray-500">
@@ -102,6 +102,6 @@ defmodule HoopsProfileWeb.DashboardLive do
 
   @impl Phoenix.LiveView
   def mount(_params, _session, socket) do
-    {:ok, socket}
+    {:ok, assign(socket, page_title: "Dashboard")}
   end
 end
