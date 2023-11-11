@@ -3,6 +3,7 @@ defmodule HoopsProfileWeb.UserSettingsLive do
 
   alias HoopsProfile.Accounts
 
+  @impl Phoenix.LiveView
   def render(assigns) do
     ~H"""
     <div class="mx-auto max-w-7xl mt-10">
@@ -95,6 +96,7 @@ defmodule HoopsProfileWeb.UserSettingsLive do
     """
   end
 
+  @impl Phoenix.LiveView
   def mount(%{"token" => token}, _session, socket) do
     socket =
       case Accounts.update_user_email(socket.assigns.current_user, token) do
@@ -126,6 +128,7 @@ defmodule HoopsProfileWeb.UserSettingsLive do
     {:ok, socket}
   end
 
+  @impl Phoenix.LiveView
   def handle_event("validate_email", params, socket) do
     %{"current_password" => password, "user" => user_params} = params
 
@@ -138,6 +141,7 @@ defmodule HoopsProfileWeb.UserSettingsLive do
     {:noreply, assign(socket, email_form: email_form, email_form_current_password: password)}
   end
 
+  @impl Phoenix.LiveView
   def handle_event("update_email", params, socket) do
     %{"current_password" => password, "user" => user_params} = params
     user = socket.assigns.current_user
@@ -158,6 +162,7 @@ defmodule HoopsProfileWeb.UserSettingsLive do
     end
   end
 
+  @impl Phoenix.LiveView
   def handle_event("validate_password", params, socket) do
     %{"current_password" => password, "user" => user_params} = params
 
@@ -170,6 +175,7 @@ defmodule HoopsProfileWeb.UserSettingsLive do
     {:noreply, assign(socket, password_form: password_form, current_password: password)}
   end
 
+  @impl Phoenix.LiveView
   def handle_event("update_password", params, socket) do
     %{"current_password" => password, "user" => user_params} = params
     user = socket.assigns.current_user
