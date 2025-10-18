@@ -368,7 +368,7 @@ defmodule HoopsProfileWeb.PlayersLive do
 
   @impl Phoenix.LiveView
   def mount(_params, _session, socket) do
-    form = to_form(%{search: %{positions: []}}, as: :search)
+    form = to_form(%{"search" => %{"positions" => []}}, as: :search)
     {:ok, socket, temporary_assigns: [form: form, page_title: "Find great players"]}
   end
 

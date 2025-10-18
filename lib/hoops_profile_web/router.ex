@@ -73,6 +73,8 @@ defmodule HoopsProfileWeb.Router do
       live "/dashboard", DashboardLive, :dashboard
       live "/dashboard/archives", DashboardLive, :archive
       live "/dashboard/offers", DashboardLive, :offer
+      live "/dashboard/games", DashboardLive.Games, :games
+      live "/dashboard/games/:id", DashboardLive.ShowGame, :show_game
       live "/players/:player_id/edit", EditPlayerProfileLive, :edit_player_profile
       live "/users/settings", UserSettingsLive, :edit
       live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email

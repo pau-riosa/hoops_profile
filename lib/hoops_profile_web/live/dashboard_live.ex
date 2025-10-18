@@ -7,7 +7,7 @@ defmodule HoopsProfileWeb.DashboardLive do
   @impl Phoenix.LiveView
   def render(assigns) do
     ~H"""
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-3">
+    <div class="mx-auto max-w-7xl px-4 mt-3">
       <div class="mx-auto grid max-w-2xl grid-cols-1 grid-rows-1 items-start gap-x-8 gap-y-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
         <div class="lg:col-start-3 lg:row-end-1">
           <div class="overflow-hidden rounded-lg bg-white ring-1 ring-inset ring-gray-200 ">
@@ -57,11 +57,11 @@ defmodule HoopsProfileWeb.DashboardLive do
 
         <div class="lg:col-span-2 lg:row-span-2 lg:row-end-2">
           <div class="grid gap-x-6 gap-y-4 grid-cols-1 md:grid-cols-3">
-            <.link patch={~p"/dashboard"}>
+            <.link patch={~p"/dashboard/games"}>
               <div class="overflow-hidden rounded-lg bg-white ring-1 ring-inset ring-gray-200 ring-4">
                 <div class="px-4 py-5 sm:p-6">
                   <dt class="text-sm font-medium leading-6 text-gray-500">
-                    Conversations
+                    Host A Game
                   </dt>
                   <dd class="w-full flex-none text-3xl font-medium leading-10 tracking-tight text-gray-900">
                     0
@@ -69,7 +69,7 @@ defmodule HoopsProfileWeb.DashboardLive do
                 </div>
               </div>
             </.link>
-            <.link patch={~p"/dashboard/archives"}>
+            <.link :if={false} patch={~p"/dashboard/archives"}>
               <div class="overflow-hidden rounded-lg bg-white ring-1 ring-inset ring-gray-200">
                 <div class="px-4 py-5 sm:p-6">
                   <dt class="text-sm font-medium leading-6 text-gray-500">
@@ -81,11 +81,23 @@ defmodule HoopsProfileWeb.DashboardLive do
                 </div>
               </div>
             </.link>
-            <.link patch={~p"/dashboard/offers"}>
+            <.link :if={false} patch={~p"/dashboard/offers"}>
               <div class="overflow-hidden rounded-lg bg-white ring-1 ring-inset ring-gray-200">
                 <div class="px-4 py-5 sm:p-6">
                   <dt class="text-sm font-medium leading-6 text-gray-500">
                     Offers
+                  </dt>
+                  <dd class="w-full flex-none text-3xl font-medium leading-10 tracking-tight text-gray-900">
+                    0
+                  </dd>
+                </div>
+              </div>
+            </.link>
+            <.link :if={false} patch={~p"/dashboard"}>
+              <div class="overflow-hidden rounded-lg bg-white ring-1 ring-inset ring-gray-200 ring-4">
+                <div class="px-4 py-5 sm:p-6">
+                  <dt class="text-sm font-medium leading-6 text-gray-500">
+                    Conversations
                   </dt>
                   <dd class="w-full flex-none text-3xl font-medium leading-10 tracking-tight text-gray-900">
                     0
